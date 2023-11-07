@@ -1,0 +1,267 @@
+:root {
+    --background: #2b2d30;
+    --header: #335fb0;
+    --text: #b0bac5;
+    --background-dark: #222225;
+}
+
+* {
+    font-family: Arial, serif;
+}
+
+body {
+    background: var(--background);
+    margin: 0;
+}
+
+.days-wrapper {
+    flex-wrap: wrap;
+    max-width: 950px;
+    margin: auto;
+    display: flex;
+}
+
+.day-wrapper {
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    background: var(--background-dark);
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--text);
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.day-wrapper:hover {
+    scale: 1.06;
+}
+
+.day-wrapper h1 {
+    margin: 0 0 10px;
+    user-select: none;
+}
+
+.day-wrapper h2 {
+    margin: 0;
+    font-size: 17px;
+    color: var(--text);
+    font-weight: normal;
+}
+
+.placeholder {
+    background: none;
+    cursor: auto;
+}
+
+.current-day {
+    background: var(--header);
+}
+
+.weekend {
+    display: none;
+}
+
+.data-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 970px) {
+    .day-wrapper {
+        height: 100px;
+        width: 300px;
+    }
+
+    .days-wrapper {
+        flex-direction: column;
+    }
+
+    .weekend {
+        margin: 0;
+        padding: 0;
+        height: 20px;
+        display: block;
+        visibility: hidden;
+    }
+
+    .placeholder {
+        margin: 0;
+        padding: 0;
+        height: 0;
+    }
+
+    .data-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .data-wrapper h2 {
+        margin-right: 5px;
+    }
+
+    .header h1 {
+        display: none;
+    }
+}
+
+.month-name {
+    text-align: center;
+    color: var(--text);
+    scroll-margin-top: 80px;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    background: var(--background-dark);
+    padding: 20px;
+    border-radius: 20px;
+    color: var(--text);
+    max-width: 500px;
+    box-shadow: -1px -1px 27px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup h1 {
+    margin-top: 0;
+}
+
+.popup h2 {
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.popup h3 {
+    margin: 5px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+button {
+    background: var(--header);
+    color: var(--text);
+    border: none 5px;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.popup input {
+    background: var(--background);
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    color: var(--text);
+}
+
+.popup button:disabled {
+    background: grey;
+}
+
+.popup ul {
+    position: absolute;
+    background: var(--background-dark);
+    width: 165px;
+    list-style: none;
+    padding-left: 10px;
+}
+
+#supervisions-popup ul {
+    position: relative;
+    width: 100%;
+}
+
+.popup li {
+    cursor: pointer;
+}
+
+.popup ul a {
+    color: #787f88;
+}
+
+#supervisions-popup li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+#popup-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.header {
+    display: flex;
+    gap: 30px;
+    flex: 1 0 auto;
+    align-self: center;
+    align-items: center;
+    height: 62px;
+}
+
+.header h1 {
+    color: var(--text);
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.header button {
+    font-size: 20px;
+    height: 38px;
+}
+
+.name-button {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background-color: var(--header);
+    cursor: pointer;
+    border: none;
+}
+
+.name-button svg {
+    transform: translate(-2.5px, -2.5px);
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background: var(--background-dark);
+    box-shadow: -1px -1px 27px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+#month-wrapper {
+    margin-top: 80px;
+}
+
+.floating-month-name {
+    position: fixed;
+    top: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.floating-month-name h1 {
+    background: var(--background-dark);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 23px;
+    box-shadow: -1px -1px 27px 10px rgba(0, 0, 0, 0.5);
+    color: var(--text);
+}
