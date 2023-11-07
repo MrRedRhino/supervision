@@ -143,8 +143,9 @@ function createMonth(year, month, scroll = false) {
     }
 
     if (scroll) {
-        header.scrollIntoView(true);
-
+        setTimeout(() => {
+            header.scrollIntoView(true);
+        });
     }
 }
 
@@ -172,8 +173,13 @@ function createTile(title, weekend, placeholder, currentDay) {
     return dayElement;
 }
 
-for (let i = -2; i < 8; i++) {
-    createMonth(2023, 10 + i, i === -1);
+function createMonths() {
+    const currentMonth = new Date().getMonth();
+
+    for (let i = -2; i < 8; i++) {
+        const month = 10 + i;
+        createMonth(2023, month, month === currentMonth);
+    }
 }
 
 async function updateCalendar() {
@@ -296,7 +302,7 @@ document.body.onscroll = () => {
     } else {
         h1.hidden = true;
     }
-}
+};
 
 function findCurrentMonthHeader(scroll) {
     let previousElement = null;
@@ -307,3 +313,5 @@ function findCurrentMonthHeader(scroll) {
         previousElement = element;
     }
 }
+
+createMonths();
