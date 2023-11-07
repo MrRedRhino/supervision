@@ -147,6 +147,11 @@ button {
     border-radius: 5px;
     padding: 8px;
     cursor: pointer;
+    transition: 0.1s linear;
+}
+
+button:active {
+    scale: 0.9;
 }
 
 .popup input {
